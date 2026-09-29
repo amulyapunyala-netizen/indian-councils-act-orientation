@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#efe9d8">
+  <title>Indian Councils Act 1892 | A Short Orientation</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #efe9d8; --paper-light: #f8f4e9; --ink: #202923; --muted: #68746b;
+      --teal: #176d6a; --teal-bright: #51c3ae; --brick: #bb563c; --line: #c9c5b7;
+      --serif: Georgia, "Times New Roman", serif; --sans: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-width: 320px; min-height: 100vh; margin: 0; color: var(--ink);
+      background: radial-gradient(ellipse at 12% 3%, rgba(187,86,60,.09), transparent 32rem),
+        radial-gradient(ellipse at 94% 90%, rgba(23,109,106,.10), transparent 34rem),
+        repeating-linear-gradient(0deg, transparent 0 5px, rgba(32,41,35,.018) 5px 6px), var(--paper);
+      font-family: var(--sans);
+    }
+    button { color: inherit; font: inherit; }
+    .page { width: min(1160px, calc(100% - 48px)); margin: 0 auto; padding: 34px 0 26px; }
+    .masthead { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 19px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .brand-mark { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid var(--teal); color: var(--teal); font-family: var(--serif); font-size: 17px; transform: rotate(45deg); }
+    .brand-mark span { transform: rotate(-45deg); }
+    .edition { color: var(--muted); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+    .title-row { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin: 0 0 21px; }
+    h1 { max-width: 760px; margin: 0; font-family: var(--serif); font-size: clamp(32px, 5.2vw, 62px); font-weight: 400; line-height: .98; }
+    h1 em { color: var(--brick); font-weight: 400; }
+    .duration { flex: 0 0 auto; padding: 7px 0 4px 15px; border-left: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .player { overflow: hidden; border: 1px solid #343b34; background: #172824; box-shadow: 0 18px 45px rgba(38,43,36,.17); }
+    .screen { position: relative; aspect-ratio: 16 / 9; min-height: 260px; overflow: hidden; background: #18302c; }
+    canvas { display: block; width: 100%; height: 100%; }
+    .screen-vignette { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(10,24,21,.04) 35%, rgba(10,24,21,.78) 100%); }
+    .scene-number { position: absolute; top: 22px; left: 25px; display: flex; gap: 9px; align-items: center; color: #fff8e8; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+    .scene-number::before { width: 22px; height: 1px; background: var(--teal-bright); content: ""; }
+    .caption { position: absolute; right: 8%; bottom: 39px; left: 8%; max-width: 850px; margin: auto; color: #fff8e8; font-family: var(--serif); font-size: clamp(17px, 2.4vw, 28px); line-height: 1.32; text-align: center; text-wrap: balance; text-shadow: 0 2px 16px rgba(0,0,0,.55); }
+    .scene-title { position: absolute; top: 22px; right: 25px; color: rgba(255,248,232,.78); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+    .controls { padding: 0 20px 15px; color: #f1ebda; background: #172824; }
+    .progress-wrap { position: relative; height: 22px; display: flex; align-items: center; cursor: pointer; }
+    .progress-track { position: relative; width: 100%; height: 3px; background: rgba(245,240,222,.22); }
+    .progress-fill { width: 0; height: 100%; background: var(--teal-bright); }
+    .chapter-mark { position: absolute; top: -3px; width: 1px; height: 9px; background: rgba(245,240,222,.64); }
+    .control-row { display: flex; align-items: center; gap: 15px; }
+    .control-button { width: 34px; height: 34px; display: grid; place-items: center; padding: 0; border: 1px solid rgba(245,240,222,.33); border-radius: 50%; background: transparent; color: #f1ebda; cursor: pointer; transition: background .2s, border-color .2s; }
+    .control-button:hover, .control-button:focus-visible { border-color: var(--teal-bright); background: rgba(81,195,174,.13); outline: none; }
+    .control-button svg { width: 14px; height: 14px; fill: currentColor; }
+    .timecode { min-width: 88px; color: #d6d8ce; font-variant-numeric: tabular-nums; font-size: 11px; }
+    .control-spacer { flex: 1; }
+    .voice-control { display: flex; align-items: center; gap: 8px; color: #d6d8ce; font-size: 11px; }
+    .voice-control input { accent-color: var(--teal-bright); }
+    .record-button { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid rgba(245,240,222,.36); border-radius: 2px; background: transparent; color: #f1ebda; font-size: 11px; cursor: pointer; }
+    .record-button:hover, .record-button:focus-visible { border-color: var(--teal-bright); outline: none; }
+    .record-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brick); }
+    .record-button[aria-pressed="true"] .record-dot { animation: pulse 1s infinite; background: #ed7054; }
+    @keyframes pulse { 50% { box-shadow: 0 0 0 5px rgba(237,112,84,.22); } }
+    .under-player { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 24px; padding: 17px 2px 0; }
+    .chapter-label { margin: 0 0 4px; color: var(--brick); font-size: 10px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .chapter-name { margin: 0; font-family: var(--serif); font-size: 20px; font-weight: 400; }
+    .record-note { max-width: 420px; margin: 2px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; text-align: right; }
+    .chapters { display: flex; gap: 8px; overflow-x: auto; padding: 18px 0 8px; scrollbar-color: #a9a596 transparent; }
+    .chapter-chip { flex: 0 0 auto; display: flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid transparent; background: rgba(248,244,233,.47); color: var(--muted); font-size: 11px; cursor: pointer; }
+    .chapter-chip:hover, .chapter-chip.active { border-color: var(--teal); color: var(--teal); }
+    .chapter-chip b { color: var(--brick); font-family: var(--serif); font-size: 13px; font-weight: 400; }
+    details { margin-top: 15px; border-top: 1px solid var(--line); color: var(--muted); }
+    summary { width: max-content; padding: 14px 0 6px; color: var(--ink); font-size: 11px; cursor: pointer; }
+    details p { max-width: 850px; margin: 4px 0 12px; font-family: var(--serif); font-size: 14px; line-height: 1.55; }
+    @media (max-width: 680px) {
+      .page { width: min(100% - 24px, 1160px); padding-top: 17px; }
+      .edition { display: none; }
+      .title-row { align-items: start; }
+      .duration { margin-top: 5px; padding-left: 9px; font-size: 10px; }
+      .screen { min-height: 0; }
+      .scene-number { top: 13px; left: 13px; font-size: 9px; }
+      .scene-title { top: 13px; right: 13px; font-size: 9px; }
+      .caption { right: 6%; bottom: 18px; left: 6%; font-size: clamp(14px, 3.6vw, 19px); }
+      .controls { padding: 0 12px 11px; }
+      .control-row { gap: 9px; }
+      .timecode { min-width: 73px; font-size: 10px; }
+      .voice-control span { display: none; }
+      .record-button { padding: 7px 8px; font-size: 10px; }
+      .under-player { grid-template-columns: 1fr; gap: 5px; }
+      .record-note { text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="brand"><span class="brand-mark"><span>I</span></span><span>Field Notes · South Asian History</span></div>
+      <div class="edition">A 3:30 orientation</div>
+    </header>
+    <section class="title-row" aria-labelledby="page-title">
+      <h1 id="page-title">Indian Councils Act:<br><em>what changed in 1892?</em></h1>
+      <div class="duration">03:30<br>Documentary</div>
+    </section>
+    <section class="player" aria-label="Indian Councils Act orientation video">
+      <div class="screen">
+        <canvas id="film" aria-label="Animated illustrations explaining the Indian Councils Act of 1892"></canvas>
+        <div class="screen-vignette"></div>
+        <div class="scene-number" id="scene-number">Scene 01</div>
+        <div class="scene-title" id="scene-title">The date on the law</div>
+        <div class="caption" id="caption" aria-live="polite"></div>
+      </div>
+      <div class="controls">
+        <div class="progress-wrap" id="progress-wrap" role="slider" tabindex="0" aria-label="Video progress" aria-valuemin="0" aria-valuemax="90" aria-valuenow="0">
+          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+        </div>
+        <div class="control-row">
+          <button class="control-button" id="play" aria-label="Play" title="Play"><svg id="play-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5 13 8l-9 5.5z"/></svg></button>
+          <button class="control-button" id="restart" aria-label="Restart" title="Restart"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 5.4A5.4 5.4 0 1 1 2.6 9H5a3.1 3.1 0 1 0 .5-2.3L7 8.2H2V3.1z"/></svg></button>
+          <span class="timecode" id="timecode">00:00 / 03:30</span>
+          <span class="control-spacer"></span>
+          <label class="voice-control" title="Read the script aloud"><input type="checkbox" id="voice" checked><span>Voice</span></label>
+          <button class="record-button" id="record" aria-pressed="false"><span class="record-dot"></span><span id="record-label">Record video</span></button>
+        </div>
+      </div>
+    </section>
+    <section class="under-player" aria-live="polite">
+      <div><p class="chapter-label" id="chapter-label">01 · Geography</p><h2 class="chapter-name" id="chapter-name">A river world</h2></div>
+      <p class="record-note">Voice reads only the narrated script. The browser recording captures the animated picture and on-screen text, but does not include the spoken audio.</p>
+    </section>
+    <nav class="chapters" id="chapters" aria-label="Video chapters"></nav>
+    <details>
+      <summary>Sources & historical note</summary>
+      <p>Date note: the statute generally meant by “Indian Councils Act” is the Indian Councils Act 1892 (55 &amp; 56 Vict. c. 14), which received royal assent on 20 June 1892. The Act enlarged legislative councils and allowed limited budget discussion and questions, but did not establish direct elections or give members control of the executive. The nomination arrangements are often described as an early, indirect form of representation. For further reading: the text of the Indian Councils Act 1892; B. Shiva Rao, <i> the Framing of India’s Constitution: Select Documents</i>, vol. 1; and the Encyclopaedia Britannica entry on the Indian Councils Acts.</p>
+    </details>
+  </main>
+  <script>
+    (() => {
+      const scenes = [
+        { title: "The date on the law", chapter: "The Act's date", screenText: "Indian Councils Act. What changed in eighteen ninety-two? A date worth getting right. Indian Councils Act. Fifty-fifth and fifty-sixth Victoria, chapter fourteen. The year eighteen ninety-two. Royal assent, twentieth June, eighteen ninety-two. A British India legislation.", narration: "The Indian Councils Act was published in 1892 and received royal assent on June twentieth of that year. It amended how legislative councils operated in British India. It enlarged their membership, opened a limited route for Indian representation, and allowed members to discuss the budget and ask questions. These changes created a new forum for debate, but not elected government." },
+        { title: "Pressure for a voice", chapter: "Why reform?", screenText: "The political backdrop. Eighteen sixty-one: legislative councils, limited Indian participation. Eighteen eighty-five: Indian National Congress founded, calls for a greater voice. Reform. Petitions and public debate build pressure.", narration: "The Councils Act of 1861 had restored legislative councils, but Indian participation stayed narrow. The Indian National Congress, founded in 1885, and other associations called for a greater role in government. Petitions and public debate helped make council reform a pressing political issue." },
+        { title: "A larger council", chapter: "Who could enter?", screenText: "How representation worked. Local bodies recommend; officials nominate. Universities, municipalities, associations. No direct public election.", narration: "The 1892 Act enlarged the central and provincial councils. Local bodies, universities, and other organizations could recommend candidates; the government then formally nominated members. The process is often described as indirect representation, but there was no direct election by the public." },
+        { title: "Debate, not control", chapter: "New permissions", screenText: "New rights inside the council. Discuss the annual budget. Ask questions on public matters. But not vote on the budget, or ask supplementary questions. Questions required advance notice.", narration: "Members could discuss the annual budget and ask questions on public matters, following procedural rules and advance notice. They could not vote on the budget or ask supplementary questions. These changes made room for debate, but did not give members control over public spending." },
+        { title: "The boundary of power", chapter: "What stayed the same", screenText: "A council, not a responsible parliament. Appointed members. The executive retains control.", narration: "These councils were not a parliament accountable to Indian voters. Members were appointed through nomination, and the colonial executive retained control of policy and administration. The Act widened discussion inside government, but it did not transfer governing power or establish self-government." },
+        { title: "A small opening", chapter: "Why it mattered", screenText: "A limited opening in a longer campaign. Eighteen sixty-one: councils. Eighteen ninety-two: discussion. Nineteen oh nine: further reforms. Representation expands; governing power does not.", narration: "The Act made representation and public questioning part of council procedure, giving later political demands a foothold. Its limits were clear, and calls for elected representation continued. The next major milestone came with the reforms of 1909, which expanded representation further without establishing responsible government." }
+      ];
+      const narrationRate = 1.25;
+      const speechWordsPerMinute = 150 * narrationRate;
+      const transitionGap = 5;
+      scenes.forEach(scene => {
+        const wordCount = scene.narration.trim().split(/\s+/).length;
+        scene.duration = Math.ceil(wordCount * 60 / speechWordsPerMinute) + transitionGap;
+      });
+      const total = scenes.reduce((sum, scene) => sum + scene.duration, 0);
+      document.querySelector(".edition").textContent = `A ${formatTime(total)} orientation`;
+      document.querySelector(".duration").innerHTML = `${formatTime(total)}<br>Documentary`;
+      document.querySelector("#timecode").textContent = `00:00 / ${formatTime(total)}`;
+      const starts = scenes.map((_, index) => scenes.slice(0, index).reduce((sum, scene) => sum + scene.duration, 0));
+      const canvas = document.querySelector("#film");
+      const ctx = canvas.getContext("2d");
+      const caption = document.querySelector("#caption");
+      const sceneNumber = document.querySelector("#scene-number");
+      const sceneTitle = document.querySelector("#scene-title");
+      const chapterLabel = document.querySelector("#chapter-label");
+      const chapterName = document.querySelector("#chapter-name");
+      const progressFill = document.querySelector("#progress-fill");
+      const progressWrap = document.querySelector("#progress-wrap");
+      const timecode = document.querySelector("#timecode");
+      const playButton = document.querySelector("#play");
+      const playIcon = document.querySelector("#play-icon");
+      const voice = document.querySelector("#voice");
+      const recordButton = document.querySelector("#record");
+      const chapters = document.querySelector("#chapters");
+      progressWrap.setAttribute("aria-valuemax", String(total));
+      let elapsed = 0, playing = false, lastFrame = 0, activeScene = -1, recorder = null, recordChunks = [], previousSpeechScene = -1;
+      const colors = { ink: "#172824", teal: "#58c0ac", pale: "#eee6d1", brick: "#c96c4b", sand: "#b99b69", water: "#246f75" };
+      const chapterButtons = scenes.map((scene, index) => {
+        const button = document.createElement("button"); button.className = "chapter-chip";
+        button.innerHTML = `<b>0${index + 1}</b><span>${scene.chapter}</span>`;
+        button.addEventListener("click", () => { seek(starts[index]); play(); }); chapters.append(button); return button;
+      });
+      function resize() {
+        const ratio = window.devicePixelRatio || 1, rect = canvas.getBoundingClientRect();
+        canvas.width = Math.round(rect.width * ratio); canvas.height = Math.round(rect.height * ratio);
+        ctx.setTransform(canvas.width / 1280, 0, 0, canvas.height / 720, 0, 0); draw();
+      }
+      function roundedRect(x,y,w,h,r,fill,stroke) {
+        ctx.beginPath(); ctx.roundRect(x,y,w,h,r); if(fill){ctx.fillStyle=fill;ctx.fill();} if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=2;ctx.stroke();}
+      }
+      function line(points,color,width=2,dash=[]) {
+        ctx.beginPath();ctx.setLineDash(dash);ctx.moveTo(points[0][0],points[0][1]);points.slice(1).forEach(point=>ctx.lineTo(point[0],point[1]));ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke();ctx.setLineDash([]);
+      }
+      function label(text,x,y,color=colors.pale,size=15,align="left") {
+        ctx.fillStyle=color;ctx.font=`${size}px Trebuchet MS, sans-serif`;ctx.textAlign=align;ctx.fillText(text,x,y);
+      }
+      function background(seed=0) {
+        ctx.fillStyle=colors.ink;ctx.fillRect(0,0,1280,720);ctx.strokeStyle="rgba(238,230,209,.055)";ctx.lineWidth=1;
+        for(let x=22;x<1280;x+=42){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,720);ctx.stroke();}
+        for(let y=24;y<720;y+=42){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(1280,y);ctx.stroke();}
+        ctx.fillStyle=`rgba(201,108,75,${.12+.02*Math.sin(seed*2)})`;ctx.beginPath();ctx.arc(1060,170,115,0,Math.PI*2);ctx.fill();
+      }
+      function drawMap(t) {
+        background(t);label("A DATE WORTH GETTING RIGHT",58,92,colors.teal,16);
+        ctx.save();ctx.translate(640,358);ctx.rotate(-.025+Math.sin(t)*.008);roundedRect(-330,-190,660,380,5,"#e8ddc3",colors.sand);roundedRect(-298,-158,596,316,2,"#eee6d1","#b99b69");
+        label("INDIAN COUNCILS ACT",0,-82,colors.ink,24,"center");label("55 & 56 VICTORIAE · CHAPTER 14",0,-42,colors.muted,15,"center");line([[-190,-18],[190,-18]],colors.brick,3);label("1892",0,74,colors.brick,92,"center");label("ROYAL ASSENT · 20 JUNE 1892",0,128,colors.ink,16,"center");ctx.restore();
+        label("PUBLISHED IN 1892",58,660,colors.pale,18);label("A BRITISH INDIA LEGISLATION",1222,660,colors.pale,14,"right");
+      }
+      function drawCity(t) {
+        background(t);label("THE POLITICAL BACKDROP",58,92,colors.teal,16);
+        roundedRect(98,205,355,270,4,"rgba(238,230,209,.08)","rgba(238,230,209,.38)");roundedRect(826,205,355,270,4,"rgba(238,230,209,.08)","rgba(238,230,209,.38)");
+        label("1861",275,275,colors.sand,38,"center");label("LEGISLATIVE COUNCILS",275,324,colors.pale,16,"center");label("LIMITED INDIAN",275,366,colors.pale,16,"center");label("PARTICIPATION",275,390,colors.pale,16,"center");
+        label("1885",1002,275,colors.brick,38,"center");label("INDIAN NATIONAL",1002,324,colors.pale,16,"center");label("CONGRESS FOUNDED",1002,350,colors.pale,16,"center");label("CALLS FOR A GREATER VOICE",1002,405,colors.teal,13,"center");
+        line([[470,340],[810,340]],colors.teal,4);ctx.beginPath();ctx.arc(640,340,58+4*Math.sin(t*2),0,Math.PI*2);ctx.strokeStyle=colors.brick;ctx.lineWidth=3;ctx.stroke();label("REFORM",640,346,colors.pale,15,"center");
+        label("PETITIONS & PUBLIC DEBATE BUILD PRESSURE",640,580,colors.pale,17,"center");
+      }
+      function drawBath(t) {
+        background(t);label("HOW REPRESENTATION WORKED",58,92,colors.teal,16);
+        const boxes=[[90,240,270,150,"LOCAL BODIES"],[505,240,270,150,"RECOMMEND"],[920,240,270,150,"NOMINATE"]];
+        boxes.forEach(([x,y,w,h,text],i)=>{roundedRect(x,y,w,h,4,i===2?"rgba(201,108,75,.22)":"rgba(238,230,209,.08)",i===2?colors.brick:"rgba(238,230,209,.38)");label(text,x+w/2,y+74,colors.pale,19,"center");if(i<2){line([[x+w+18,y+h/2],[boxes[i+1][0]-20,y+h/2]],colors.teal,4);ctx.beginPath();ctx.moveTo(boxes[i+1][0]-20,y+h/2);ctx.lineTo(boxes[i+1][0]-34,y+h/2-9);ctx.lineTo(boxes[i+1][0]-34,y+h/2+9);ctx.closePath();ctx.fillStyle=colors.teal;ctx.fill();}});
+        label("UNIVERSITIES · MUNICIPALITIES · ASSOCIATIONS",640,476,colors.sand,16,"center");
+        for(let i=0;i<8;i++){const x=300+i*100,y=555+Math.sin(t*2+i)*8;ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);ctx.fillStyle=colors.brick;ctx.fill();}
+        label("NO DIRECT PUBLIC ELECTION",640,628,colors.pale,18,"center");
+      }
+      function drawSeal(t) {
+        background(t);label("NEW RIGHTS INSIDE THE COUNCIL",58,92,colors.teal,16);
+        roundedRect(140,190,430,360,4,"rgba(238,230,209,.08)","rgba(238,230,209,.38)");roundedRect(710,190,430,360,4,"rgba(238,230,209,.08)","rgba(238,230,209,.38)");
+        label("DISCUSS",355,250,colors.sand,17,"center");label("ANNUAL BUDGET",355,322,colors.pale,28,"center");label("ASK QUESTIONS",355,410,colors.teal,22,"center");label("ON PUBLIC MATTERS",355,448,colors.pale,16,"center");
+        label("BUT NOT",925,250,colors.brick,17,"center");label("VOTE ON THE BUDGET",925,322,colors.pale,23,"center");label("OR ASK",925,405,colors.pale,19,"center");label("SUPPLEMENTARY QUESTIONS",925,448,colors.pale,16,"center");
+        line([[640,190],[640,550]],"rgba(238,230,209,.24)",2);label("QUESTIONS REQUIRED ADVANCE NOTICE",640,620,colors.sand,15,"center");
+      }
+      function drawTrade(t) {
+        background(t);label("A COUNCIL, NOT A RESPONSIBLE PARLIAMENT",58,92,colors.teal,16);
+        const seats=[];for(let row=0;row<3;row++)for(let col=0;col<7;col++)seats.push([310+col*100,270+row*74]);
+        seats.forEach(([x,y],i)=>{ctx.beginPath();ctx.arc(x,y,18,0,Math.PI*2);ctx.fillStyle=i<5?colors.brick:"#b99b69";ctx.fill();ctx.fillStyle=colors.ink;ctx.fillRect(x-20,y+20,40,20);});
+        label("APPOINTED MEMBERS",640,540,colors.pale,18,"center");
+        roundedRect(476,585,328,54,3,"rgba(201,108,75,.2)",colors.brick);label("EXECUTIVE RETAINS CONTROL",640,620,colors.pale,16,"center");
+        line([[640,490],[640,570]],colors.brick,3);ctx.beginPath();ctx.arc(640,490,8+2*Math.sin(t*2),0,Math.PI*2);ctx.fillStyle=colors.brick;ctx.fill();
+      }
+      function drawLegacy(t) {
+        background(t);label("A LIMITED OPENING IN A LONGER CAMPAIGN",58,92,colors.teal,16);
+        line([[170,400],[1110,400]],"rgba(238,230,209,.44)",4);
+        const milestones=[[240,"1861","Councils"],[640,"1892","Discussion"],[1040,"1909","Further reforms"]];
+        milestones.forEach(([x,year,text],i)=>{ctx.beginPath();ctx.arc(x,400,16+(i===1?3*Math.sin(t*2):0),0,Math.PI*2);ctx.fillStyle=i===1?colors.brick:colors.teal;ctx.fill();label(year,x,330,colors.pale,34,"center");label(text,x,468,colors.sand,17,"center");});
+        label("REPRESENTATION EXPANDS; GOVERNING POWER DOES NOT",640,580,colors.pale,18,"center");
+      }
+      const painters=[drawMap,drawCity,drawBath,drawSeal,drawTrade,drawLegacy];
+      function sceneAt(time){for(let i=starts.length-1;i>=0;i--)if(starts[i]<=time)return i;return 0;}
+      function draw(){
+        const index=sceneAt(elapsed);painters[index](elapsed-starts[index]);const scene=scenes[index];
+        ctx.fillStyle="rgba(12,24,21,.72)";ctx.fillRect(0,580,1280,140);ctx.fillStyle=colors.teal;ctx.fillRect(58,611,25,2);ctx.fillStyle=colors.pale;ctx.font="16px Trebuchet MS, sans-serif";ctx.textAlign="left";
+        const words=scene.narration.split(" ");let lines=[""];let lineIndex=0;
+        for(const word of words){const test=lines[lineIndex]?`${lines[lineIndex]} ${word}`:word;if(ctx.measureText(test).width>1120&&lines[lineIndex])lines[++lineIndex]=word;else lines[lineIndex]=test;}
+        const startY=649-(lines.length-1)*12;lines.forEach((text,i)=>ctx.fillText(text,58,startY+i*25));
+        sceneNumber.textContent=`Scene 0${index+1}`;sceneTitle.textContent=scene.title;caption.textContent=scene.narration;chapterLabel.textContent=`0${index+1} · ${scene.chapter}`;chapterName.textContent=scene.title;
+        chapterButtons.forEach((button,i)=>button.classList.toggle("active",i===index));
+        if(index!==activeScene){activeScene=index;chapterButtons[index].setAttribute("aria-current","step");chapterButtons.forEach((button,i)=>{if(i!==index)button.removeAttribute("aria-current");});}
+        progressFill.style.width=`${(elapsed/total)*100}%`;progressWrap.setAttribute("aria-valuenow",String(Math.floor(elapsed)));timecode.textContent=`${formatTime(elapsed)} / ${formatTime(total)}`;
+      }
+      function formatTime(seconds){const value=Math.floor(seconds);return `${String(Math.floor(value/60)).padStart(2,"0")}:${String(value%60).padStart(2,"0")}`;}
+      function frame(timestamp){if(!playing)return;if(!lastFrame)lastFrame=timestamp;elapsed=Math.min(total,elapsed+(timestamp-lastFrame)/1000);lastFrame=timestamp;const index=sceneAt(elapsed);if(voice.checked&&index!==previousSpeechScene){speak(index);previousSpeechScene=index;}draw();if(elapsed>=total){pause();return;}requestAnimationFrame(frame);}
+      function play(){if(elapsed>=total)elapsed=0;playing=true;lastFrame=0;playButton.setAttribute("aria-label","Pause");playButton.title="Pause";playIcon.innerHTML='<path d="M3 2h4v12H3zm6 0h4v12H9z"/>';requestAnimationFrame(frame);}
+      function pause(){playing=false;lastFrame=0;playButton.setAttribute("aria-label","Play");playButton.title="Play";playIcon.innerHTML='<path d="M4 2.5 13 8l-9 5.5z"/>';if("speechSynthesis"in window)speechSynthesis.cancel();}
+      function seek(time){elapsed=Math.max(0,Math.min(total,time));previousSpeechScene=-1;if("speechSynthesis"in window)speechSynthesis.cancel();draw();}
+      function speak(index){if(!("speechSynthesis"in window))return;speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(scenes[index].narration);utterance.rate=narrationRate;utterance.pitch=.96;speechSynthesis.speak(utterance);}
+      playButton.addEventListener("click",()=>playing?pause():play());document.querySelector("#restart").addEventListener("click",()=>{pause();seek(0);});
+      voice.addEventListener("change",()=>{if(!voice.checked&&"speechSynthesis"in window)speechSynthesis.cancel();else if(voice.checked&&playing)speak(sceneAt(elapsed));});
+      progressWrap.addEventListener("click",event=>{const rect=progressWrap.getBoundingClientRect();seek(((event.clientX-rect.left)/rect.width)*total);});
+      progressWrap.addEventListener("keydown",event=>{if(event.key==="ArrowRight"){event.preventDefault();seek(elapsed+5);}if(event.key==="ArrowLeft"){event.preventDefault();seek(elapsed-5);}if(event.key==="Home")seek(0);if(event.key==="End")seek(total);});
+      recordButton.addEventListener("click",()=>{
+        if(recorder&&recorder.state==="recording"){recorder.stop();return;}
+        if(!canvas.captureStream||!window.MediaRecorder){document.querySelector("#record-label").textContent="Recording unavailable";return;}
+        const stream=canvas.captureStream(30);recordChunks=[];
+        try{recorder=new MediaRecorder(stream,{mimeType:"video/webm;codecs=vp9"});}catch{try{recorder=new MediaRecorder(stream,{mimeType:"video/webm"});}catch{recorder=new MediaRecorder(stream);}}
+        recorder.ondataavailable=event=>{if(event.data.size)recordChunks.push(event.data);};
+        recorder.onstop=()=>{const blob=new Blob(recordChunks,{type:recorder.mimeType||"video/webm"});const url=URL.createObjectURL(blob);const link=document.createElement("a");link.href=url;link.download="indian-councils-act-1892-orientation.webm";link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);recordButton.setAttribute("aria-pressed","false");document.querySelector("#record-label").textContent="Record video";};
+        recorder.start();recordButton.setAttribute("aria-pressed","true");document.querySelector("#record-label").textContent="Stop & download";if(!playing)play();
+      });
+      window.addEventListener("resize",resize);resize();
+    })();
+  </script>
+</body>
+</html>
