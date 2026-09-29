@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#efe9d8">
-  <title>Indian Councils Act 1892 | A Short Orientation</title>
+  <title>Indian Councils Act 1892 | The Background</title>
   <style>
     :root {
       color-scheme: light;
@@ -95,7 +95,7 @@
       <div class="edition">A 3:30 orientation</div>
     </header>
     <section class="title-row" aria-labelledby="page-title">
-      <h1 id="page-title">Indian Councils Act:<br><em>what changed in 1892?</em></h1>
+      <h1 id="page-title">Indian Councils Act:<br><em>the background</em></h1>
       <div class="duration">03:30<br>Documentary</div>
     </section>
     <section class="player" aria-label="Indian Councils Act orientation video">
@@ -133,12 +133,12 @@
   <script>
     (() => {
       const scenes = [
-        { title: "The date on the law", chapter: "The Act's date", screenText: "Indian Councils Act. What changed in eighteen ninety-two? A date worth getting right. Indian Councils Act. Fifty-fifth and fifty-sixth Victoria, chapter fourteen. The year eighteen ninety-two. Royal assent, twentieth June, eighteen ninety-two. A British India legislation.", narration: "The Indian Councils Act was published in 1892 and received royal assent on June twentieth of that year. It amended how legislative councils operated in British India. It enlarged their membership, opened a limited route for Indian representation, and allowed members to discuss the budget and ask questions. These changes created a new forum for debate, but not elected government." },
-        { title: "Pressure for a voice", chapter: "Why reform?", screenText: "The political backdrop. Eighteen sixty-one: legislative councils, limited Indian participation. Eighteen eighty-five: Indian National Congress founded, calls for a greater voice. Reform. Petitions and public debate build pressure.", narration: "The Councils Act of 1861 had restored legislative councils, but Indian participation stayed narrow. The Indian National Congress, founded in 1885, and other associations called for a greater role in government. Petitions and public debate helped make council reform a pressing political issue." },
-        { title: "A larger council", chapter: "Who could enter?", screenText: "How representation worked. Local bodies recommend; officials nominate. Universities, municipalities, associations. No direct public election.", narration: "The 1892 Act enlarged the central and provincial councils. Local bodies, universities, and other organizations could recommend candidates; the government then formally nominated members. The process is often described as indirect representation, but there was no direct election by the public." },
-        { title: "Debate, not control", chapter: "New permissions", screenText: "New rights inside the council. Discuss the annual budget. Ask questions on public matters. But not vote on the budget, or ask supplementary questions. Questions required advance notice.", narration: "Members could discuss the annual budget and ask questions on public matters, following procedural rules and advance notice. They could not vote on the budget or ask supplementary questions. These changes made room for debate, but did not give members control over public spending." },
-        { title: "The boundary of power", chapter: "What stayed the same", screenText: "A council, not a responsible parliament. Appointed members. The executive retains control.", narration: "These councils were not a parliament accountable to Indian voters. Members were appointed through nomination, and the colonial executive retained control of policy and administration. The Act widened discussion inside government, but it did not transfer governing power or establish self-government." },
-        { title: "A small opening", chapter: "Why it mattered", screenText: "A limited opening in a longer campaign. Eighteen sixty-one: councils. Eighteen ninety-two: discussion. Nineteen oh nine: further reforms. Representation expands; governing power does not.", narration: "The Act made representation and public questioning part of council procedure, giving later political demands a foothold. Its limits were clear, and calls for elected representation continued. The next major milestone came with the reforms of 1909, which expanded representation further without establishing responsible government." }
+        { title: "Why reform emerged", chapter: "A changing political climate", narration: "By the late nineteenth century, Indians were asking for a greater role in governing their country. The Indian Councils Act of 1892 was a limited response to those demands. To understand its background, begin with the councils and political institutions British rule had already created." },
+        { title: "The limits of 1861", chapter: "Nominated councils", narration: "The Indian Councils Act of 1861 restored legislative councils at the centre and in the provinces. Members were nominated, not chosen in a general election, and the councils had limited influence over administration. Through the following decades, new associations and newspapers carried questions about government and public finance into debate." },
+        { title: "Associations find a voice", chapter: "Petitions and debate", narration: "Groups such as the Poona Sarvajanik Sabha, the Indian Association, and the Madras Mahajana Sabha organized meetings and petitions. They raised concerns about administration and sought more Indian participation in public affairs. Their work helped turn local grievances into a broader, more connected political conversation." },
+        { title: "Congress sets out demands", chapter: "The Congress, 1885", narration: "The Indian National Congress was founded in 1885. Its early leaders used petitions and resolutions to call for larger councils, more Indian members, and opportunities to discuss public finances and ask questions. They sought a stronger voice within the colonial system, not an immediate end to British rule." },
+        { title: "A cautious compromise", chapter: "Reform from above", narration: "These demands reached the government in India and the British Parliament. Reformers pressed for councils that could examine public questions, while officials resisted giving them control of the executive. The resulting legislation widened membership and debate, but kept representation indirect and government authority firmly in official hands." },
+        { title: "What 1892 changed", chapter: "A limited answer", narration: "Published in 1892 and given royal assent on June twentieth, the Indian Councils Act enlarged legislative councils and allowed limited budget discussion and questions. Members could not vote on the budget, and the executive remained in control. The Act acknowledged organized political pressure, but left demands for representative government unresolved." }
       ];
       const narrationRate = 1.25;
       const speechWordsPerMinute = 150 * narrationRate;
@@ -196,7 +196,7 @@
         ctx.fillStyle=`rgba(201,108,75,${.12+.02*Math.sin(seed*2)})`;ctx.beginPath();ctx.arc(1060,170,115,0,Math.PI*2);ctx.fill();
       }
       function drawMap(t) {
-        background(t);label("A DATE WORTH GETTING RIGHT",58,92,colors.teal,16);
+        background(t);label("A QUESTION OF REPRESENTATION",58,92,colors.teal,16);
         ctx.save();ctx.translate(640,358);ctx.rotate(-.025+Math.sin(t)*.008);roundedRect(-330,-190,660,380,5,"#e8ddc3",colors.sand);roundedRect(-298,-158,596,316,2,"#eee6d1","#b99b69");
         label("INDIAN COUNCILS ACT",0,-82,colors.ink,24,"center");label("55 & 56 VICTORIAE · CHAPTER 14",0,-42,colors.muted,15,"center");line([[-190,-18],[190,-18]],colors.brick,3);label("1892",0,74,colors.brick,92,"center");label("ROYAL ASSENT · 20 JUNE 1892",0,128,colors.ink,16,"center");ctx.restore();
         label("PUBLISHED IN 1892",58,660,colors.pale,18);label("A BRITISH INDIA LEGISLATION",1222,660,colors.pale,14,"right");
@@ -210,12 +210,11 @@
         label("PETITIONS & PUBLIC DEBATE BUILD PRESSURE",640,580,colors.pale,17,"center");
       }
       function drawBath(t) {
-        background(t);label("HOW REPRESENTATION WORKED",58,92,colors.teal,16);
-        const boxes=[[90,240,270,150,"LOCAL BODIES"],[505,240,270,150,"RECOMMEND"],[920,240,270,150,"NOMINATE"]];
-        boxes.forEach(([x,y,w,h,text],i)=>{roundedRect(x,y,w,h,4,i===2?"rgba(201,108,75,.22)":"rgba(238,230,209,.08)",i===2?colors.brick:"rgba(238,230,209,.38)");label(text,x+w/2,y+74,colors.pale,19,"center");if(i<2){line([[x+w+18,y+h/2],[boxes[i+1][0]-20,y+h/2]],colors.teal,4);ctx.beginPath();ctx.moveTo(boxes[i+1][0]-20,y+h/2);ctx.lineTo(boxes[i+1][0]-34,y+h/2-9);ctx.lineTo(boxes[i+1][0]-34,y+h/2+9);ctx.closePath();ctx.fillStyle=colors.teal;ctx.fill();}});
-        label("UNIVERSITIES · MUNICIPALITIES · ASSOCIATIONS",640,476,colors.sand,16,"center");
-        for(let i=0;i<8;i++){const x=300+i*100,y=555+Math.sin(t*2+i)*8;ctx.beginPath();ctx.arc(x,y,6,0,Math.PI*2);ctx.fillStyle=colors.brick;ctx.fill();}
-        label("NO DIRECT PUBLIC ELECTION",640,628,colors.pale,18,"center");
+        background(t);label("ASSOCIATIONS ORGANIZE PUBLIC DEBATE",58,92,colors.teal,16);
+        const groups=[[74,"POONA SARVAJANIK","SABHA"],[477,"INDIAN","ASSOCIATION"],[880,"MADRAS MAHAJANA","SABHA"]];
+        groups.forEach(([x,first,second])=>{roundedRect(x,225,326,132,4,"rgba(238,230,209,.08)","rgba(238,230,209,.38)");label(first,x+163,279,colors.pale,18,"center");label(second,x+163,310,colors.sand,17,"center");line([[x+163,358],[x+163,402]],colors.teal,3);});
+        line([[237,402],[1043,402]],colors.teal,3);line([[640,402],[640,432]],colors.teal,3);
+        roundedRect(358,432,564,74,4,"rgba(201,108,75,.2)",colors.brick);label("PETITIONS · MEETINGS · PUBLIC DEBATE",640,476,colors.pale,18,"center");
       }
       function drawSeal(t) {
         background(t);label("NEW RIGHTS INSIDE THE COUNCIL",58,92,colors.teal,16);
